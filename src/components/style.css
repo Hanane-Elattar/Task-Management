@@ -1,0 +1,219 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fafaf8;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+    margin: 20px 0;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+  }
+  
+  .column {
+    width: 300px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+  }
+  
+  .column h3 {
+    background-color: #bdbdbde4;
+    padding: 10px;
+    margin: -15px -15px 10px;
+    border-bottom: 1px solid #ddd;
+    border-radius: 8px 8px 0 0;
+    text-align: center;
+  }
+  
+  .task {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .task p {
+    margin: 5px 0;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+  }
+  
+  .add-task-btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+  }
+  
+  .modal h3 {
+    margin-top: 0;
+  }
+  
+  .modal input,
+  .modal textarea {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .modal button {
+    margin-right: 10px;
+  }
+  
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+
+
+  /* Overlay for the background */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+  
+  /* Modal container for the form */
+  .modal-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  /* Heading style */
+  .modal-container h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  /* Form fields styling */
+  .modal-container form div {
+    margin-bottom: 10px;
+  }
+  
+  .modal-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .modal-container input,
+  .modal-container textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  .modal-container textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+  
+  .modal-container input[type="date"] {
+    padding: 8px;
+  }
+  
+  /* Buttons style */
+  .modal-container button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+  }
+  
+  .modal-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Cancel button (secondary button) */
+  .modal-container button[type="button"] {
+    background-color: #ccc;
+  }
+  
+  .modal-container button[type="button"]:hover {
+    background-color: #aaa;
+  }
+  
+  /* Responsive styling */
+  @media (max-width: 768px) {
+    .modal-container {
+      width: 90%;
+      padding: 15px;
+    }
+  
+    .modal-container h3 {
+      font-size: 1.2rem;
+    }
+  
+    .modal-container button {
+      font-size: 0.9rem;
+    }
+  }
+  
