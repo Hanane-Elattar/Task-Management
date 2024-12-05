@@ -1,57 +1,16 @@
-import { ADD_TASK, CHANGE_TASK_STATUS } from "./actions";
+const initialState = { tasks: [] };
 
-const initialState = {
-  columns: {
-    "To Do": [],
-    "In Progress": [],
-    "Completed": [],
-  },
-};
-
-export const columnOrder = ["preparation", "dayOfTheEvent", "eventClosing", "empty"];
-
-export const taskReducer = (state = initialState, action) => {
+export const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_TASK: {
-      const { column, task } = action.payload;
+    case "ADD_TASK":
+      return { ...state, tasks: [...state.tasks, action.payload] };
+    case "UPDATE_TASK":
       return {
         ...state,
-        columns: {
-          ...state.columns,
-          [column]: [...state.columns[column], task],
-        },
+        tasks: state.tasks.map((task) => (task.id === action.payload.id ? action.payload : task)),
       };
-    }
-
-    case CHANGE_TASK_STATUS: {
-      const { fromColumn, toColumn, taskId } = action.payload;
-
-      if (!state.columns[fromColumn]) {
-        console.error(`Column '${fromColumn}' does not exist`);
-        return state;
-      }
-      if (!state.columns[toColumn]) {
-        console.error(`Column '${toColumn}' does not exist`);
-        return state;
-      }
-
-      const taskToMove = state.columns[fromColumn].find((task) => task.id === taskId);
-
-      if (!taskToMove) {
-        console.error(`Task with ID ${taskId} not found in column '${fromColumn}'`);
-        return state;
-      }
-
-      return {
-        ...state,
-        columns: {
-          ...state.columns,
-          [fromColumn]: state.columns[fromColumn].filter((task) => task.id !== taskId),
-          [toColumn]: [...state.columns[toColumn], taskToMove],
-        },
-      };
-    }
-
+    case "DELETE_TASK":
+      return { ...state, tasks: state.tasks.filter((task) => task.id !== action.payload) };
     default:
       return state;
   }
